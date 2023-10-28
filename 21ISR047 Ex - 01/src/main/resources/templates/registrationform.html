@@ -1,0 +1,25 @@
+<html xmlns:th="http:www.thymeleaf.org">
+    <head>
+        <title>Regstration</title>
+    </head>
+    <body>
+        <form th:action="@{/registersucc}" method="post" th:object="${user}">
+            Name:&nbsp <input type="text" th:field="*{name}"/><br>
+            Mail :&nbsp<input type="text" th:field="*{email}"/><br>
+            Password:&nbsp <input type="password" th:field="*{password}"/><br>
+            DOB:&nbsp <input type="date" th:field="*{dob}"/><br>
+            Gender:&nbsp <input type="radio" name="Gender" value="Male" th:field="*{gender}"/>Male
+            <input type="radio" name="Gender" value="Female" th:field="*{gender}"/>Female<br>
+            Schemes:&nbsp<br>
+            <input type="checkbox" th:field="*{schemes}" value="Bharat Scheme"/><label>Bharat Scheme</label><br>
+            <input type="checkbox" th:field="*{schemes}" value="Thanthai Periyar Scheme"/><label>Thanthai Periyar Scheme</label><br>
+            <input type="checkbox" th:field="*{schemes}" value="Kamarajar Scheme"/><label>Kamarajar Scheme</label><br>
+            Feedback:&nbsp<br><textarea th:field="*{note}" cols="25" rows="5"></textarea><br>
+            Location:&nbsp
+            <select th:field="*{location}">
+                <option th:each="l:${LocationList}" th:value="${l}"></option>
+            </select><br>
+            <button type="submit">Click to Register</button>
+        </form>
+    </body>
+</html>
